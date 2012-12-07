@@ -63,6 +63,7 @@ module Kafka
     # with the messages parsed from the string, and the number of bytes
     # consumed from the string.
     def self.parse_from(data)
+      data.force_encoding Encoding::ASCII_8BIT if data.respond_to? :force_encoding
       messages = []
       bytes_processed = 0
 
